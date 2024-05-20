@@ -467,8 +467,7 @@ a {
     .banner {
         width: 100%;
         margin: 0 auto;
-        height: 120vh;
-        margin: 100px 0;
+        height: 80vh;
     }
 
     .banner .list-box {
