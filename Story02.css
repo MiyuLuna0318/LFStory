@@ -466,7 +466,7 @@ a {
     .banner {
         width: 100%;
         margin: 0 auto;
-        height: 120vh;
+        height: 150vh;
     }
 
     .banner .list-box {
@@ -527,7 +527,7 @@ a {
     .banner {
         width: 100%;
         padding: 0;
-        height: 120vh;
+        height: 150vh;
     }
 
     .banner .box span {
