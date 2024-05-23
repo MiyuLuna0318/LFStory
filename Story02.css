@@ -940,7 +940,6 @@ a {
     .cover-2 .box2 .col2 .element-level-2 {
         display: none;
     }
-
 }
 
 
@@ -960,7 +959,6 @@ a {
 
 .cover-3 .box3 {
     max-width: 1440px;
-    /* margin: 0 auto; */
 }
 
 .cover-3 .box3 img {
@@ -1057,6 +1055,7 @@ a {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100% auto;
+    position: relative;
 }
 
 .cover2,
@@ -1106,6 +1105,15 @@ a {
 }
 
 /* 活動訊息 */
+.cover2 .box article {
+    transition: all 0.5s;
+}
+
+.cover2 .box article:hover {
+    transform: scale(105%);
+    filter: brightness(110%);
+}
+
 .cover2 .box article .img1 {
     position: absolute;
     z-index: -1;
@@ -1140,40 +1148,90 @@ a {
     border-radius: 0 99px 0 99px;
 }
 
+
+
 /* 英文字 */
 .cover2 .box small {
     margin-top: 20px;
     width: 350px;
 }
 
-/* 中文字 */
 .cover2 h3 {
     text-align: center;
     width: 350px;
 }
 
+
 /* 查看最新消息 => 按鈕 */
-.cover2 .button {
-    margin-bottom: 50px;
+.cover2 a .btn-white {
+    width: 350px;
+    height: 68px;
+    margin: 0 0 50px 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 70px;
     background: var(--gradient);
     border-radius: 99px 0 99px 0;
+    overflow: hidden;
+    position: relative;
+    padding: 0 20px;
+    transition: all 0.5s;
 }
 
-.cover2 .button p {
-    display: flex;
-    align-items: center;
+.cover2 a .btn-white::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background: var(--gradient);
+    transition: all 0.8s;
+
 }
 
-.cover2 .button img {
-    padding-left: 10px;
-    vertical-align: middle;
+.cover2 a .btn-white:hover::after {
+    left: 0;
+    filter: brightness(120%);
+
+}
+
+.cover2 a .btn-white span,
+.cover2 a .btn-white div {
+    position: relative;
+    z-index: 1;
+}
+
+.cover2 a .btn-white div {
     width: 60px;
+    margin-left: 10px;
+    position: relative;
+    z-index: 1;
 }
+
+.cover2 .btn-white img {
+    width: 100%;
+    height: 100%;
+}
+
+.cover2 a .btn-white:hover div img {
+    animation: arrowMove 0.7s 0.1s;
+}
+
+@keyframes arrowMove {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+
+
+
+
 
 /* RWD 斷點 */
 /* 電腦 1200px 以上 */
@@ -1187,7 +1245,7 @@ a {
 /* 大型平板 (993-) 1200px */
 @media (max-width: 1200px) {
     .cover2 .title {
-        margin: 80px 0;
+        margin: 100px 0;
     }
 
     .cover2 .box {
@@ -1217,12 +1275,13 @@ a {
 @media (max-width: 992px) {
     .cover2 .box {
         width: 100%;
+        margin: auto;
         padding: 0;
     }
 
     .cover2 .box article a {
-        width: 230px;
-        height: 230px;
+        width: 260px;
+        height:  260px;
     }
 
     .cover2 .box article a h3 {
@@ -1232,12 +1291,12 @@ a {
     .cover2 .box article a .img1,
     .cover2 .box article a .img2,
     .cover2 .box article a .img3 {
-        width: 230px;
-        height: 230px;
+        width: 260px;
+        height:  260px;
     }
 
-    .cover2 .button {
-        width: 60%;
+    .cover2 a .btn-white {
+        margin-top: 0;
     }
 }
 
@@ -1246,13 +1305,7 @@ a {
     .cover2 .box {
         display: block;
         padding-bottom: 60px;
-    }
-
-    .cover2 .box a:hover {
-        background: var(--gradient-2);
-        color: #fff;
-        border-radius: 0;
-        transition: .4s;
+        width: 100%;
     }
 
     .cover2 .box article {
@@ -1263,13 +1316,20 @@ a {
         border-image: linear-gradient(to right, rgba(238, 179, 208, .5)50%, rgba(137, 209, 239, 0.5)50%);
         border-image-slice: 1;
         text-align: center;
-        width: 60%;
+        width: 55%;
         margin: 50px auto;
+        transition: all 0.5s;
+    }
+
+    .cover2 .box article:hover {
+        border-image: linear-gradient(to right, rgba(238, 179, 208, .5)50%, rgba(137, 209, 239, 0.5)50%);
+        background: var(--overlay);
+        width: 80%;
     }
 
     .cover2 .box article a {
-        background: none;
-        width: 100%;
+        width: 0%;
+        margin: 0 auto;
         height: auto;
     }
 
