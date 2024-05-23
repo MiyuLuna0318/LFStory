@@ -328,7 +328,7 @@ a {
     max-height: 1000px;
     width: 100%;
     padding: 0 170px 20px;
-    margin: auto auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -720,7 +720,6 @@ a {
 .cover-2 {
     height: 900px;
     width: 100%;
-    padding: 0 144px 0;
     margin: 0 auto;
     background-image: url(./images/Vectorup.png);
     background-repeat: no-repeat;
@@ -730,6 +729,8 @@ a {
 
 .cover-2 .box2 {
     max-width: 1440px;
+    padding: 0 144px 0;
+
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -797,9 +798,7 @@ a {
 /* RWD 斷點 */
 /* 電腦 1200px 以上 */
 @media (min-width: 1201px) {
-    /* .cover-2 {
-        min-width: 1440px;
-    } */
+
 
     .cover-2 .box2 .col2 .element-level-2 {
         margin: 60px 0;
@@ -811,15 +810,14 @@ a {
 /* 大型平板 (993-) 1200px */
 @media (max-width: 1200px) {
     .cover-2 {
-        padding: 0;
         width: 100%;
         margin: auto;
         height: 800px;
-
     }
 
     .cover-2 .box2 {
         margin: 0 50px;
+        padding: 0;
     }
 
     .cover-2 .box2 .col2 h2 {
@@ -865,14 +863,20 @@ a {
         text-align: right;
     }
 
-    .cover-2 .box2 .picture .img1,
-    .cover-2 .box2 .picture .img2 {
+    .cover-2 .box2 .picture .img1 {
         display: none;
+    }
+
+    .cover-2 .box2 .picture .img2 {
+        top: 15rem;
+        right: 7rem;
+        transform: scale(1.2);
+        opacity: .3;
     }
 
     .cover-2 .box2 .picture .img3 {
         bottom: 0;
-        right: 5rem;
+        right: 0;
         transform: scale(1.2);
         opacity: .5;
     }
@@ -1281,7 +1285,7 @@ a {
 
     .cover2 .box article a {
         width: 260px;
-        height:  260px;
+        height: 260px;
     }
 
     .cover2 .box article a h3 {
@@ -1292,7 +1296,7 @@ a {
     .cover2 .box article a .img2,
     .cover2 .box article a .img3 {
         width: 260px;
-        height:  260px;
+        height: 260px;
     }
 
     .cover2 a .btn-white {
@@ -1356,5 +1360,9 @@ a {
 
     .cover2 .button img {
         display: none;
+    }
+
+    .cover2 a .btn-white {
+        width: 70%;
     }
 }
