@@ -324,6 +324,14 @@ a {
 }
 
 /* 品牌故事，banner區 */
+.banner-box{
+    background-image: url(./images/bgline.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 0 auto;
+
+}
 .banner {
     max-height: 1000px;
     width: 100%;
@@ -332,14 +340,10 @@ a {
     display: flex;
     flex-direction: column;
     position: relative;
-    background-image: url(./images/bgline.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 /* 左半邊 */
 .banner .list-box {
-    /* border: 1px solid red; */
     width: 20%;
     display: flex;
     justify-content: center;
@@ -1231,10 +1235,6 @@ a {
         width: 100%;
     }
 }
-
-
-
-
 
 
 /* RWD 斷點 */
