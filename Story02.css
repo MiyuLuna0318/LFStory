@@ -323,17 +323,65 @@ a {
     text-decoration: none;
 }
 
+/* 監聽淡入淡出效果 */
+.cover,
+.cover-2 .box2,
+.cover-3 .box3,
+.cover2 .box article {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+
+/* 由上而下動畫 */
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 從左至右動畫 */
+@keyframes fadeInFromLeft {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* 淡入 */
+@keyframes fadeInFromOpacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 /* 品牌故事，banner區 */
-.banner-box{
+.banner-box {
+    width: 100%;
     background-image: url(./images/bgline.svg);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
-    margin: 0 auto;
-
+    animation: fadeInFromLeft 1.25s ease forwards;
 }
+
 .banner {
-    max-height: 1000px;
+    /* max-height: 1000px; */
     width: 100%;
     padding: 0 170px 20px;
     margin: 0 auto;
@@ -351,11 +399,15 @@ a {
     position: absolute;
     left: 300px;
     top: 150px;
+
 }
 
 /* 直線排列中文-品牌故事 */
 .banner .list-box .box span {
     display: flex;
+    opacity: 0;
+    animation: fadeInFromTop 1s 1.25s ease forwards;
+
 }
 
 /* 直線段 */
@@ -364,13 +416,21 @@ a {
     width: 1px;
     height: 150px;
     background-color: #000;
+
+    opacity: 0;
+    animation: fadeInFromTop 1s 1.25s ease forwards;
+
 }
 
 /* 橫躺排列英文-BRAND STORY */
 .banner .list-box .entext {
     writing-mode: vertical-rl;
     justify-content: space-between;
+
+    opacity: 0;
+    animation: fadeInFromTop 2s 1.8s ease forwards;
 }
+
 
 
 /* 右半邊 */
@@ -383,8 +443,11 @@ a {
     top: 50px;
     bottom: 450px;
     right: 295px;
-    /* width: 45vh; */
     margin: 80px 0 0 100px;
+
+    opacity: 0;
+    animation: fadeInFromOpacity 3s 2s ease forwards;
+
 }
 
 .banner .col .bg {
@@ -394,6 +457,8 @@ a {
     width: 450px;
     z-index: -1;
     transform: rotate(180deg);
+    opacity: 0;
+    animation: fadeInFromOpacity 1.8s 2.5s ease forwards;
 }
 
 .banner .col p {
@@ -402,6 +467,8 @@ a {
     top: 450px;
     bottom: 145px;
     right: 295px;
+    opacity: 0;
+    animation: fadeInFromOpacity 1s 2.3s ease forwards;
 }
 
 
@@ -410,7 +477,7 @@ a {
 @media (min-width: 1201px) {
     .banner {
         max-width: 1440px;
-        height: 100vh;
+        height: 1000px;
     }
 
     .banner .list-box {
@@ -428,7 +495,7 @@ a {
 @media (max-width: 1200px) {
     .banner {
         width: 100%;
-        height: 120vh;
+        height: 900px;
     }
 
     .banner .list-box {
@@ -450,7 +517,7 @@ a {
 @media (max-width: 992px) {
     .banner {
         width: 100%;
-        height: 1000px;
+        height: 800px;
     }
 
     .banner .list-box {
@@ -486,11 +553,13 @@ a {
     }
 
     .banner .entext {
-        margin-right: 100px;
+        /* margin-right: 100px; */
+        display: none;
     }
 
     .banner .list-box .box {
         display: flex;
+        margin-top: 35px;
     }
 
     .banner .list-box .box span {
@@ -504,7 +573,6 @@ a {
 
     .banner .list-box .entext {
         margin-left: 100px;
-        transform: rotate(-90deg);
     }
 
     .banner .col .logo {
@@ -572,6 +640,7 @@ a {
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-top: 5rem;
 }
 
 .cover .box img {
@@ -623,13 +692,14 @@ a {
     .cover {
         max-width: 1440px;
         height: 100vh;
+        
     }
 }
 
 /* 大型平板 (993-) 1200px */
 @media (max-width: 1200px) {
     .cover {
-        height: 150vh;
+        height: 100vh;
         width: 100%;
         padding: 0 30px;
     }
@@ -654,11 +724,13 @@ a {
         padding: 0;
         width: 85%;
         margin: auto;
+        height: 800px;
+
     }
 
     .cover .box img {
         width: 100%;
-        height: 85%;
+        height: 100%;
         opacity: 0.6;
         border-radius: 5rem 0 5rem 0;
     }
@@ -777,7 +849,7 @@ a {
     position: absolute;
     width: 325px;
     height: 490px;
-    right: 200px;
+    right: 230px;
     top: 100px;
     bottom: 120px;
     z-index: -4;
@@ -786,7 +858,7 @@ a {
 .cover-2 .box2 .picture .img2 {
     position: absolute;
     width: 330px;
-    right: 20px;
+    right: 50px;
     top: 400px;
     z-index: -3;
 }
@@ -794,9 +866,21 @@ a {
 .cover-2 .box2 .picture .img3 {
     position: absolute;
     width: 150px;
-    right: -50px;
+    right: -20px;
     top: 325px;
     z-index: -2;
+    animation: Circles 15s linear infinite;
+}
+
+/* .img3旋轉動畫 */
+@keyframes Circles {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* RWD 斷點 */
@@ -872,17 +956,19 @@ a {
     }
 
     .cover-2 .box2 .picture .img2 {
-        top: 15rem;
-        right: 7rem;
+        top: 18rem;
+        right: 5rem;
         transform: scale(1.2);
-        opacity: .3;
+        width: 280px;
+        height: 280px;
+        opacity: .25;
     }
 
     .cover-2 .box2 .picture .img3 {
         bottom: 0;
-        right: 0;
+        right: -50px;
         transform: scale(1.2);
-        opacity: .5;
+        width: 200px;
     }
 
 }
@@ -1026,16 +1112,16 @@ a {
 
 /* 手機 (577-) 768px */
 @media (max-width: 768px) {
-    .cover-3 h3 {
+    .cover-3 .box3 h3 {
         font-size: 1.5rem;
         padding: 0 20px;
     }
 
-    .cover-3 p {
-        padding: 30px;
+    .cover-3 .box3 p {
+        padding: 25px;
     }
 
-    .cover-3 img {
+    .cover-3 .box3 img {
         display: none;
     }
 
@@ -1044,15 +1130,14 @@ a {
 
 /* 小型手機 576px 以下 */
 @media (max-width: 576px) {
-    .cover-3 h3 {
+    .cover-3 .box3 h3 {
         font-size: 18px;
         padding: 0;
         margin: 35px 0;
     }
 
-    .cover-3 p {
+    .cover-3 .box3 p {
         font-size: 14px;
-        padding: 30px;
     }
 
 }
